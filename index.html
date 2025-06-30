@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Sorting App </title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f3f4f6, #e2e8f0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    input[type="file"] {
+      margin: 10px 0;
+    }
+
+    input[type="submit"] {
+      background-color: #38a169;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #2f855a;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #2d3748;
+    }
+
+    img {
+      margin-top: 20px;
+      max-width: 300px;
+      border-radius: 10px;
+      border: 2px solid #cbd5e0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Smart Sorting AI</h1>
+
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required><br><br>
+    <input type="submit" value="Predict">
+  </form>
+
+  {% if prediction %}
+    <h2>{{ prediction }}</h2>
+    <img src="{{ image_url }}" alt="Uploaded Image">
+  {% endif %}
+</body>
+</html>
